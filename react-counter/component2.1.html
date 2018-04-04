@@ -14,35 +14,28 @@
     <script type="text/babel">
 
       class Product extends React.Component {
-        constructor(props) {
+        constructor(props){
           super(props);
           this.state = {qty: 0}
-        },
+        }
 
-        buy: function() {
-          this.setState({
-            qty: this.state.qty + 1
-          })
-        },
-
-        render: function() {
+          render() {
           return (
             <div>
               <h1>SALE!</h1>
               <p>{this.props.name} - {this.props.price}</p>
-              <button onClick={this.buy}>Buy!</button>
+              <button onClick={() =>this.setState({qty: this.state.qty + 1})}>Buy!</button>
               <p>QTY: {this.state.qty}</p>
               <hr/>
             </div>
-          )
+          );
         }
-
       }
 
-    Product.info = {
-      name="Laptop",
-      price="$399"
-    }
+      const info = {
+        name:"Laptop",
+        price:"$399"
+      }
 
       ReactDOM.render(
 
